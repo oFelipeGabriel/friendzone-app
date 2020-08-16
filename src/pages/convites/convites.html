@@ -1,0 +1,25 @@
+<!--
+  Generated template for the ConvitesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Convites</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="convites && convites.length>0" class="pendentes">
+    <h2>Convites pendentes:</h2>
+    <ion-grid *ngFor="let g of convites">
+      <ion-row>
+        <ion-col col-12>Criado por: {{g.criadoPor.nome}}</ion-col>
+        <ion-col col-12>Grupo: {{g.nome}}</ion-col>
+        <ion-col col-12>Data da entrega: {{g.dataEntrega | date:'dd/MM/yyyy'}}</ion-col>
+        <button ion-button block (click)="aceitar(g)">Aceitar</button>
+      </ion-row>      
+    </ion-grid>
+  </div>
+</ion-content>

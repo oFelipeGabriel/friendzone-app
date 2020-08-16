@@ -1,0 +1,19 @@
+page-novo-grupo {
+    .toolbar-title{
+        font-size: 1.5rem;
+    }
+    .scroll-content{
+        background-color: map-get($colors, primary);
+        color: map-get($colors, secondary);
+        .input-cover, ion-item{
+            background-color: transparent;
+        }
+        ion-item{
+            color: map-get($colors, secondary);
+        }
+    }
+    .btn-cadastrar{
+        margin-top: 3rem;
+        background-color: map-get($colors, secondary);
+    }
+}

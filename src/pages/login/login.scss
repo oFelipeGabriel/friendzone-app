@@ -1,0 +1,26 @@
+page-login {
+    .scroll-content{
+        background: rgb(82,58,36);
+        background: linear-gradient(5deg, rgba(82,58,36,1) 0%, rgba(242,96,23,1) 100%);
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }    
+   .content-login{
+        padding: 1.5rem;
+        background-color: rgba(82,58,36,.2);
+        border-radius: 12px;
+        border:1px solid #b8560b;
+        width: 95%;
+        ion-item{
+            background-color: rgba(222,222,222,.2);
+            padding-left: 0;
+            color: #222
+        }
+        button{
+            margin-top: 3.5rem;
+        }
+    }
+}

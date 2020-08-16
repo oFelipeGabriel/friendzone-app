@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "763988571681",
+    "firebase_url": "https://norse-coral-221214.firebaseio.com",
+    "project_id": "norse-coral-221214",
+    "storage_bucket": "norse-coral-221214.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763988571681:android:4157025139e89022c75560",
+        "android_client_info": {
+          "package_name": "io.friendzone.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763988571681-7p0rj7qq21462i40fm1akuflafdf6u06.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtTBIsOSbDKLHeU2H5O4GrfUwCOlNYVfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763988571681-7p0rj7qq21462i40fm1akuflafdf6u06.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

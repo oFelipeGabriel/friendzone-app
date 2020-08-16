@@ -1,0 +1,48 @@
+@import '../../theme/variables.scss';
+
+page-home {
+    ion-content .scroll-content{
+        background-color: map-get($colors, primary);
+        color: #dedede;
+    .list-welcome{
+        margin-bottom: 5px !important;
+    }
+    .pendentes{        
+            background-color: rgba(245, 29, 5, .2);
+            padding: 1rem;
+            border-radius: 5px;
+            ion-grid{
+                border: 1px solid red;
+                border-radius: 8px;
+            }
+        }
+    .welcome{
+        text-align: right;
+        background-color: map-get($colors, primary);
+        color: map-get($colors, secondary);
+        min-height: auto !important;
+        ion-label{
+            margin: 0;
+        }
+    }
+        .text-light{
+            color: #dedede;
+            width: 100%;
+            text-align: center;
+            margin: 10px 0 0 0;
+        }
+        .grupos{
+            background-color: #dedede;
+            color: map-get($colors, primary);
+            border: 1px solid map-get($colors, secondary);
+            border-radius: 8px;
+            box-shadow: 2px 2px 20px rgba(20,20,20,.5);
+            margin-top: 5px;
+        }
+    }
+    .border-top{    
+        border-top: 1px solid map-get($colors, primary);
+        padding: 0;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,19 @@
+@import '../../theme/variables.scss';
+
+.tabbar{
+    background-color: #1c1b1b !important;
+    a{
+        color:  map-get($colors, secondary) !important;
+        ion-icon{
+            color:  map-get($colors, secondary) !important
+        }
+    }
+}
+.toolbar{
+    .toolbar-background{
+        background-color: #1c1b1b !important;
+    }
+    .toolbar-title{
+        color:  map-get($colors, secondary) !important
+    }
+}

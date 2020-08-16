@@ -1,0 +1,28 @@
+@import '../../theme/variables.scss';
+
+page-grupo {
+    .scroll-content{
+        background-color: map-get($colors, primary);
+        color: map-get($colors, secondary);
+        ion-grid{
+            border: 1px solid map-get($colors, secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            .input-cover{
+                background-color: transparent;
+            }
+
+        }
+    }
+    .item-email{
+        background-color: transparent;
+    }
+    .btn-convidar{
+        background-color: map-get($colors, light);
+        color: map-get($colors, primary);
+    }
+    .danger{
+        margin-top: 3rem;
+        background-color: map-get($colors, secondary);
+    }
+}
