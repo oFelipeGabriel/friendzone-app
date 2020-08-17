@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { Push } from "@ionic-native/push";
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -61,7 +62,8 @@ import { ApiProvider } from '../providers/api/api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserStorageProvider,
-    ApiProvider
+    ApiProvider,
+    Push
   ]
 })
 export class AppModule {}

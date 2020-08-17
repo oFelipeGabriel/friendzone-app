@@ -48,5 +48,14 @@ export class AceitesPage {
   }
   convertDateToUTC(date) { 
     return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()); 
-}
+  }
+  getSorteado(grupo){
+    let id = this.user._id;
+      let filter = grupo.sorteados.filter(sorteado => {
+        if(sorteado.entrega){
+          return sorteado.entrega._id===id
+        }        
+      })
+      return filter[0].recebe.nome    
+  }
 }

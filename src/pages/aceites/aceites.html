@@ -15,8 +15,9 @@
     <ion-row>
       <ion-col col-12>Grupo: {{g.nome}}</ion-col>
       <ion-col col-12>Data da entrega: {{getData(g.dataEntrega) | date:'dd/MM/yyyy'}}</ion-col>
-      <ion-col col-12>Confirmados: {{g.usuarios.length}}</ion-col>
-      <ion-col col-12>Aguardando confirmação: {{g.aguardandoConfirm.length}}</ion-col>
+      <ion-col col-12 *ngIf="!g.foiSorteado">Confirmados: {{g.usuarios.length}}</ion-col>
+      <ion-col col-12 *ngIf="!g.foiSorteado">Aguardando confirmação: {{g.aguardandoConfirm.length}}</ion-col>
+      <ion-col *ngIf="g.foiSorteado">Você tirou: {{getSorteado(g)}}</ion-col>
     </ion-row>      
   </ion-grid>
 </ion-content>

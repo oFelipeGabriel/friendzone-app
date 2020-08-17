@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular';
-
+import { Push, PushObject, PushOptions } from "@ionic-native/push";
 import { GrupoPage } from "../grupo/grupo";
 import { NovoGrupoPage } from "../novo-grupo/novo-grupo";
 import { UserStorageProvider } from "../../providers/user-storage/user-storage";
@@ -31,49 +31,60 @@ export class HomePage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public events: Events,
+    private push: Push,
     private userStorage: UserStorageProvider,
     private api: ApiProvider) {
       events.subscribe('grupo:atualizado', () => {
         this.buscaGrupos(this.user._id);
         this.buscaConvites(this.user.email) 
       });
-      this.pushsetup();
+      
   }
   ionViewDidLoad() {
     this.userStorage.getUser().then(async user => {
       this.user = user 
+      this.pushsetup();
       this.buscaGrupos(this.user._id);
       await this.buscaConvites(this.user.email) 
     })
   }
 
   pushsetup() {
-    // const options: PushOptions = {
+    const options: PushOptions = {
 
-    //   android: {
-    //     senderID: '763988571681',
-    //     vibrate: true,
-    //     forceShow: true
-    //   },
-    //   ios: {
-    //     alert: "true",
-    //     badge: true,
-    //     sound: "false"
-    //   }
-    // };
+      android: {
+        senderID: '763988571681',
+        vibrate: true,
+        forceShow: true
+      },
+      ios: {
+        alert: "true",
+        badge: true,
+        sound: "false"
+      }
+    };
 
-    // const pushObject: PushObject = this.push.init(options);
+    const pushObject: PushObject = this.push.init(options);
 
-    // pushObject.on("registration").subscribe((registration: any) => {
-    //   console.log("registration", registration)
-    // });
+    pushObject.on("registration").subscribe((registration: any) => {
+      let id = registration.registrationId;
+      this.atualizaFirebase(id);
+    });
 
-    // pushObject.on("notification").subscribe((notification: any) => {
-    //   console.log("notification", notification)
-    // });
+    pushObject.on("notification").subscribe((notification: any) => {
+      console.log("notification", notification)
+    });
   }
 
-  
+  async atualizaFirebase(id){
+    let body = {
+      idUsuario: this.user._id,
+      idFirebase: id
+    }
+    await this.api.requestPost('usuario/atualizaFirebase', body).then(res => {
+      console.log("atualizou firebase", res)
+    })
+  }
   
   async buscaGrupos(id){
     this.api.requestGet('grupo/busca', {id}).then(res => {
@@ -101,5 +112,14 @@ export class HomePage {
   }
   novo(){
     this.app.getRootNav().push(NovoGrupoPage, {user: this.user})
+  }
+  getSorteado(grupo){
+    let id = this.user._id;
+      let filter = grupo.sorteados.filter(sorteado => {
+        if(sorteado.entrega){
+          return sorteado.entrega._id===id
+        }        
+      })
+      return filter[0].recebe.nome    
   }
 }

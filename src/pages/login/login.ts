@@ -28,16 +28,19 @@ export class LoginPage {
     })
   }
   entrar(){
-    this.api.requestGet('usuario/busca', {email: this.email}).then(async res =>{
-      if(res.status==200){
-        if(res.data.length>0){
-          this.userStorage.saveUser(await res.data[0])
-          this.navCtrl.setRoot(TabsPage)
-        }else{
-          this.navCtrl.push(CadastroPage, {email: this.email})
+    if(this.email){
+      this.api.requestGet('usuario/busca', {email: this.email}).then(async res =>{
+        if(res.status==200){
+          if(res.data.length>0){
+            this.userStorage.saveUser(await res.data[0])
+            this.navCtrl.setRoot(TabsPage)
+          }else{
+            this.navCtrl.push(CadastroPage, {email: this.email})
+          }
+          
         }
-        
-      }
-    })   
+      }) 
+    }
+      
   }
 }
