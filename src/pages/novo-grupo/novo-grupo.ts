@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { HomePage } from "../home/home";
+import { TabsPage } from "../tabs/tabs";
 import { ApiProvider } from "../../providers/api/api";
 
 
@@ -36,7 +36,7 @@ export class NovoGrupoPage {
     }
     this.api.requestPost('grupo/cadastro', body).then(async res =>{
       if(res.status==200){
-        this.navCtrl.setRoot(HomePage)
+        this.navCtrl.setRoot(TabsPage)
       }
     })    
   }

@@ -56,6 +56,8 @@ export class AceitesPage {
           return sorteado.entrega._id===id
         }        
       })
-      return filter[0].recebe.nome    
+      if(filter.length>0) return filter[0].recebe;
+      else return null;
+      
   }
 }

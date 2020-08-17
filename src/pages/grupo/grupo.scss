@@ -16,6 +16,7 @@ page-grupo {
     }
     .item-email{
         background-color: transparent;
+        color: map-get($colors, light)
     }
     .btn-convidar{
         background-color: map-get($colors, light);

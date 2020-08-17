@@ -39,11 +39,37 @@
   <ion-grid *ngFor="let g of grupos" class="grupos">
     <ion-row>
       <ion-col col-12>Grupo: {{g.nome}}</ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-12>Data da entrega: {{getData(g.dataEntrega) | date:'dd/MM/yyyy'}}</ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-12 *ngIf="!g.foiSorteado">Confirmados: {{g.usuarios.length}}</ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-12 *ngIf="!g.foiSorteado">Aguardando confirmação: {{g.aguardandoConfirm.length}}</ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-12>Foi sorteado: {{g.foiSorteado?'Sim':'Não'}}</ion-col>
-      <ion-col col-12 *ngIf="g.foiSorteado">Você tirou: {{getSorteado(g)}}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="g.foiSorteado" class="sorteado">
+      <ion-col col-12><ion-icon name="man"></ion-icon> Você tirou: <b>{{getSorteado(g).nome}}</b></ion-col>
+      <ion-grid col-12>
+        <ion-row>
+          <ion-col>Tamanho da camisa: </ion-col><ion-col>{{getSorteado(g).tamanhoCamisa}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Tamanho da calça: </ion-col><ion-col>{{getSorteado(g).tamanhoCalca}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Tamanho do sapato: </ion-col><ion-col>{{getSorteado(g).tamanhoSapato}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col> Hobby: </ion-col><ion-col>{{getSorteado(g).hobby}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+    <ion-row>
       <ion-col text-right class="border-top" (click)="verGrupo(g)">Ver detalhes  <ion-icon name="arrow-forward"></ion-icon></ion-col>
     </ion-row>      
   </ion-grid>

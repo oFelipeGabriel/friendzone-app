@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 import { UserStorageProvider } from "../../providers/user-storage/user-storage";
 import { ApiProvider } from "../../providers/api/api";
@@ -19,6 +19,7 @@ export class ConvitesPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
+    public events: Events,
     private userStorage: UserStorageProvider,
     private api: ApiProvider
   ) {
@@ -44,6 +45,8 @@ export class ConvitesPage {
     }
     await this.api.requestPost('grupo/addConfirmacao', body).then(res => {
       console.log('salvo', res)
+      this.events.publish('grupo:atualizado')
+      this.buscaConvites(this.user.email);
     })
   }
 }

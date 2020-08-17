@@ -1,3 +1,10 @@
 page-convites {
-
+    .scroll-content{
+        background-color: map-get($colors, primary);
+        color: map-get($colors, secondary);
+        button{
+            background-color: map-get($colors, secondary);
+            color: map-get($colors, light);
+        }
+    }
 }

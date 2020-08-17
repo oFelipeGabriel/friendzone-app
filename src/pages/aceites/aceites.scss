@@ -10,7 +10,14 @@ page-aceites {
             .input-cover{
                 background-color: transparent;
             }
-
+            .sorteado{
+                border-radius: 8px;
+                background-color: map-get($colors, secondary);
+                color: map-get($colors, light);
+                ion-col{
+                    text-transform: capitalize;
+                }
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ import axios from 'axios';
 export class ApiProvider {
 
   // BASE_PATH: string = 'http://192.168.15.37:3333/'
-  BASE_PATH: string = 'https://friendzone-back.herokuapp.com';
+  BASE_PATH: string = 'https://friendzone-back.herokuapp.com/';
   HEADERS: any = {
     'Content-Type': 'application/json',
     'Accept': 'application/json'

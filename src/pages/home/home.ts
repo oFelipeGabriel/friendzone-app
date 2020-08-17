@@ -120,6 +120,6 @@ export class HomePage {
           return sorteado.entrega._id===id
         }        
       })
-      return filter[0].recebe.nome    
+      return filter[0].recebe    
   }
 }

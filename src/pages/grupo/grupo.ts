@@ -45,6 +45,10 @@ export class GrupoPage {
     })
   }
   sortear(){
-    
+    this.api.requestGet('grupo/sortear' , {grupoId:this.grupo._id}).then(async res => {
+      this.events.publish('grupo:atualizado');
+      this.grupo = res.data;
+      this.navCtrl.pop();
+    })
   }
 }
